@@ -1,12 +1,27 @@
 # Nuxt Minimal Starter
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Simple Nuxt project for the course "Web Page Construction II" at IFRS - Porto Alegre.
+
+**Author:** Allan Ornel
+
+This repository is a minimal Nuxt 4. It contains a small task manager app demonstrating Nuxt pages, server API routes, and basic state handling.
+
+**Highlights:**
+- Minimal Nuxt 4 project structure
+- Example server API routes under `server/api`
+- Simple JSON-backed local DB in `server/db`
+- Reusable UI components in `app/components/ui`
+
+## Prerequisites
+
+- Node.js (LTS recommended)
+- A package manager: `npm`, `pnpm`, `yarn` or `bun`
 
 ## Setup
 
-Make sure to install dependencies:
+Install dependencies with your preferred package manager:
 
-```bash
+```powershell
 # npm
 npm install
 
@@ -16,15 +31,15 @@ pnpm install
 # yarn
 yarn install
 
-# bun
+# bun (if used)
 bun install
 ```
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`:
+Start the development server (opens on `http://localhost:3000` by default):
 
-```bash
+```powershell
 # npm
 npm run dev
 
@@ -42,7 +57,7 @@ bun run dev
 
 Build the application for production:
 
-```bash
+```powershell
 # npm
 npm run build
 
@@ -56,9 +71,9 @@ yarn build
 bun run build
 ```
 
-Locally preview production build:
+Preview the production build locally:
 
-```bash
+```powershell
 # npm
 npm run preview
 
@@ -72,4 +87,20 @@ yarn preview
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Project Structure (short)
+
+- `app/` — Nuxt app, pages, and components
+- `server/api/` — server API routes used by the app
+- `server/db/` — simple JSON files used as a local data store for demos
+- `types/` — shared TypeScript types
+
+## Contributing
+
+This project is a educational artifact. If you'd like to suggest improvements or fixes, please open an issue or submit a pull request.
+
+## Resources
+
+- Nuxt documentation: https://nuxt.com/docs
+
+---
+_Created for the "Web Page Construction II" course at IFRS - Porto Alegre._
