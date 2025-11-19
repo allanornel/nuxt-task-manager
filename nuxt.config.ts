@@ -32,4 +32,15 @@ export default defineNuxtConfig({
      */
     componentDir: '@/components/ui'
   }
+  ,
+  // force light theme by default to avoid starting in dark mode
+  colorMode: {
+    preference: 'light',
+    fallback: 'light',
+    storageKey: 'nuxt-color-mode'
+  },
+  alias: {
+    '~/components': './components',
+    '@/components': './components'
+  }
 })

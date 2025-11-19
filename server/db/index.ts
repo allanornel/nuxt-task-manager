@@ -1,9 +1,9 @@
 import { promises as fs } from 'fs'
 import path from 'path'
 import crypto from 'crypto'
-import bcrypt from 'bcryptjs'
-import type { User, SessionsMap, Task } from '../types/auth'
-import { CreateTaskDTO } from '../types/task'
+import bcrypt from "bcryptjs"
+import type { User, SessionsMap } from '../types/auth'
+import { CreateTaskDTO, Task } from '../types/task'
 
 const usersPath = path.join(process.cwd(), 'server', 'db', 'users.json')
 const sessionsPath = path.join(process.cwd(), 'server', 'db', 'sessions.json')
@@ -100,7 +100,6 @@ export async function getUserIdFromSession(token?: string | null, refresh = true
   if (!s) return null
   const now = Date.now()
   if (s.expiresAt && Date.parse(s.expiresAt) <= now) {
-    // expired, clean up
     Reflect.deleteProperty(sessions, token)
     await saveSessions(sessions)
     return null
@@ -135,10 +134,12 @@ export async function getTasksByUser(userId: string): Promise<Task[]> {
   return tasks.filter((task) => task.userId === userId)
 }
 
-export async function addTask(task: CreateTaskDTO, userId: string): Promise<void> {
+export async function addTask(task: CreateTaskDTO, userId: string): Promise<Task> {
   const tasks = await getTasks()
-  tasks.push({ ...task, userId, id: crypto.randomUUID(), createdAt: new Date().toISOString(), completed: false })
+  const newTask: Task = { ...task, userId, id: crypto.randomUUID(), createdAt: new Date().toISOString(), completed: false }
+  tasks.push(newTask)
   await saveTasks(tasks)
+  return newTask
 }
 
 export async function updateTask(updatedTask: Task) {

@@ -30,25 +30,27 @@ async function submit() {
 </script>
 
 <template>
-  <div class="auth-page">
-    <h1>Sign up</h1>
-    <form @submit.prevent="submit">
+  <div class="auth-page max-w-md mx-auto mt-12 p-6 rounded-lg shadow-md" style="background:var(--card); color:var(--card-foreground)">
+    <h1 class="text-2xl font-semibold mb-4">Sign up</h1>
+    <form @submit.prevent="submit" class="space-y-4">
       <div>
-  <label>Name</label>
-  <input v-model="name" required>
+        <label class="block text-sm mb-1">Name</label>
+        <input v-model="name" required class="w-full px-3 py-2 rounded border" />
       </div>
       <div>
-  <label>Email</label>
-  <input v-model="email" required type="email">
+        <label class="block text-sm mb-1">Email</label>
+        <input v-model="email" required type="email" class="w-full px-3 py-2 rounded border" />
       </div>
       <div>
-  <label>Password</label>
-  <input v-model="password" required type="password">
+        <label class="block text-sm mb-1">Password</label>
+        <input v-model="password" required type="password" class="w-full px-3 py-2 rounded border" />
       </div>
-      <div v-if="error" style="color:tomato">{{ error }}</div>
-      <button type="submit" :disabled="loading">{{ loading ? 'Signing...' : 'Sign up' }}</button>
+      <div v-if="error" class="text-sm text-red-400">{{ error }}</div>
+      <button type="submit" :disabled="loading" class="w-full py-2 bg-primary text-primary-foreground rounded hover:opacity-95 disabled:opacity-50">
+        {{ loading ? 'Signing...' : 'Sign up' }}
+      </button>
     </form>
-    <p>Already have an account? <NuxtLink to="/auth/signin">Sign in</NuxtLink></p>
+    <p class="mt-4 text-sm">Already have an account? <NuxtLink to="/auth/signin" class="text-primary underline">Sign in</NuxtLink></p>
   </div>
 </template>
 
