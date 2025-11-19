@@ -1,4 +1,4 @@
-# Nuxt Minimal Starter
+# Nuxt Task Manager
 
 Simple Nuxt project for the course "Web Page Construction II" at IFRS - Porto Alegre.
 
@@ -8,7 +8,7 @@ This repository is a minimal Nuxt 4. It contains a small task manager app demons
 
 **Highlights:**
 - Minimal Nuxt 4 project structure
-- Example server API routes under `server/api`
+- Example Server with Nitro, API routes under `server/api`
 - Simple JSON-backed local DB in `server/db`
 - Reusable UI components in `app/components/ui`
 
